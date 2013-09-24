@@ -4,6 +4,7 @@
     <AssemblyPart x:Name="Microsoft.VisualStudio.TestPlatform.Core" Source="Microsoft.VisualStudio.TestPlatform.Core.dll" />
     <AssemblyPart x:Name="Microsoft.VisualStudio.TestPlatform.TestExecutor.Core" Source="Microsoft.VisualStudio.TestPlatform.TestExecutor.Core.dll" />
     <AssemblyPart x:Name="Microsoft.VisualStudio.TestPlatform.UnitTestFramework" Source="Microsoft.VisualStudio.TestPlatform.UnitTestFramework.dll" />
+    <AssemblyPart x:Name="GalaSoft.MvvmLight.WP8" Source="GalaSoft.MvvmLight.WP8.dll" />
     <AssemblyPart x:Name="LightManWP" Source="LightManWP.dll" />
   </Deployment.Parts>
 </Deployment>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 using LightManWP.Model;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
@@ -23,7 +21,7 @@ namespace LightManWPTests.Models
         private readonly Tile _tile22 = new Tile(2, 2);
 
         [TestMethod]
-        public void WhenArenaIsCreatedAndLihtman1and2CanRecordFirstRoundWithDrawThenResultNameIsNull()
+        public void WhenArenaIsCreatedAndLihtman1And2CanRecordFirstRoundWithDrawThenResultNameIsNull()
         {
             var grid = new GridGame(3, 3);
 
@@ -47,64 +45,45 @@ namespace LightManWPTests.Models
         [TestMethod]
         public void WhenLightman1WinARoundInArenaThenResolveRoundRetuRnLightman1()
         {
+            var grid = new GridGame(3, 3);
+
+            var run1 = new List<Tile> { _tile00, _tile01, _tile02 };
+            var run2 = new List<Tile> { _tile22, _tile21, _tile11, _tile10 };
+
+            var lightMan1 = new LightMan(Player1Name);
+            var lightMan2 = new LightMan(Player2Name);
+
+            var arena = new Arena(grid, lightMan1, lightMan2);
+            arena.StartNewRound();
+
+            arena.RecordCurrentRun(run1);
+            arena.RecordCurrentRun(run2);
+
+            var winnerRound = arena.ResolveRound();
+
+            Assert.AreEqual(lightMan1, winnerRound);
         }
 
         [TestMethod]
         public void WhenLightman2WinARoundInArenaThenResolveRoundReturnLightman2()
         {
-        }
-    }
+            var grid = new GridGame(3, 3);
 
+            var run1 = new List<Tile> { _tile22, _tile21, _tile11, _tile10 };
+            var run2 = new List<Tile> { _tile00, _tile01, _tile02 };
 
+            var lightMan1 = new LightMan(Player1Name);
+            var lightMan2 = new LightMan(Player2Name);
 
-    public class Arena
-    {
-        private readonly GridGame _grid;
-        private readonly LightMan _lightMan1;
-        private readonly LightMan _lightMan2;
-        private bool _player2Turn;
+            var arena = new Arena(grid, lightMan1, lightMan2);
+            arena.StartNewRound();
 
-        public Arena(GridGame grid, LightMan lightMan1, LightMan lightMan2)
-        {
-            _grid = grid;
-            _lightMan1 = lightMan1;
-            _lightMan2 = lightMan2;
-        }
+            arena.RecordCurrentRun(run1);
+            arena.RecordCurrentRun(run2);
 
-        public void StartNewRound()
-        {
-            _player2Turn = false;
-        }
+            var winnerRound = arena.ResolveRound();
 
-        public void RecordCurrentRun(IList<Tile> currentRun)
-        {
-            if (_player2Turn)
-            {
-                _lightMan2.RecordRun(new Run(currentRun));
-                _player2Turn = false;
-            }
-            else
-            {
-                _lightMan1.RecordRun(new Run(currentRun));
-                _player2Turn = true;
-            }
-        }
-
-        public LightMan ResolveRound()
-        {
-            var round = new Round(_lightMan1.Run, _lightMan2.Run);
-
-            var resultRound = round.Resolve();
-
-            switch (resultRound)
-            {
-                case RunResult.Run1Win:
-                    return _lightMan1;
-                case RunResult.Run2Win:
-                    return _lightMan2;
-                default:
-                    return null;
-            }
+            Assert.AreEqual(lightMan2, winnerRound);
         }
     }
 }
