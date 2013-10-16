@@ -5,5 +5,6 @@ namespace LightManWPTests.ViewModels
     [TestClass]
     public class ArenaViewModelTest
     {
+       // [TestMethod]
     }
 }
