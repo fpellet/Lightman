@@ -90,6 +90,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Messengers\MessengerFake.cs" />
+    <Compile Include="ViewModels\StartRecordCommandTest.cs" />
     <Compile Include="ViewModels\TileCommandTest.cs" />
     <Compile Include="ViewModels\TileViewModelTest.cs" />
   </ItemGroup>
@@ -144,6 +145,9 @@
     <Reference Include="GalaSoft.MvvmLight.WP8">
       <HintPath>..\packages\MvvmLightLibs.4.1.27.1\lib\wp8\GalaSoft.MvvmLight.WP8.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

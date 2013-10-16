@@ -1,5 +1,5 @@
-﻿<xapCache source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Bin\x86\Debug\LightManWP_Debug_x86.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="24/09/2013 22:15:37">
-  <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\obj\x86\Debug\LightManWP.dll" archivePath="LightManWP.dll" lastWriteTime="24/09/2013 22:15:37" />
+﻿<xapCache source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Bin\x86\Debug\LightManWP_Debug_x86.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="16/10/2013 19:40:47">
+  <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\obj\x86\Debug\LightManWP.dll" archivePath="LightManWP.dll" lastWriteTime="16/10/2013 19:40:47" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="05/09/2013 08:36:16" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="05/09/2013 08:36:16" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="05/09/2013 08:36:16" />
@@ -8,7 +8,6 @@
   <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Bin\x86\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="24/09/2013 22:01:19" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Bin\x86\Debug\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="05/09/2013 08:36:16" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Bin\x86\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="05/09/2013 08:36:16" />
-  <file source="C:\Users\emi\Documents\GitHub\Lightman\LightManWP\Bin\x86\Debug\LightManWP.dll" archivePath="LightManWP.dll" lastWriteTime="24/09/2013 22:15:37" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\packages\MvvmLightLibs.4.1.27.1\lib\wp8\GalaSoft.MvvmLight.Extras.WP8.dll" archivePath="GalaSoft.MvvmLight.Extras.WP8.dll" lastWriteTime="24/09/2013 21:56:13" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\packages\MvvmLightLibs.4.1.27.1\lib\wp8\GalaSoft.MvvmLight.WP8.dll" archivePath="GalaSoft.MvvmLight.WP8.dll" lastWriteTime="24/09/2013 21:56:13" />
   <file source="C:\Users\emi\Documents\GitHub\Lightman\packages\MvvmLightLibs.4.1.27.1\lib\wp8\Microsoft.Practices.ServiceLocation.dll" archivePath="Microsoft.Practices.ServiceLocation.dll" lastWriteTime="24/09/2013 21:56:13" />

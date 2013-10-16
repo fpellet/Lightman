@@ -8,20 +8,19 @@ namespace LightManWPTests.ViewModels
     using LightManWP.Notifications;
 
     [TestClass]
-    public class TileCommandTest
+    public class StartRecordCommandTest
     {
         [TestMethod]
         public void WhenCommandIsExecutedThenNotificationIsSended()
         {
-            var tilePosition = new TilePosition(1, 2);
-
             var inputMessenger = new MessengerFake();
+            var message = new Record(Recording.Start);
 
-            var tileCommand = new TileCommand(inputMessenger, tilePosition);
-            tileCommand.Execute(null);
+            var startRecordCommand = new StartRecordCommand(inputMessenger, message);
+            startRecordCommand.Execute(null);
 
             Assert.IsNotNull(inputMessenger.SendedMessage);
-            Assert.AreEqual(tilePosition, inputMessenger.SendedMessage.First());
+            Assert.AreEqual(message, inputMessenger.SendedMessage.First());
         }
     }
 }

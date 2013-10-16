@@ -106,14 +106,17 @@
     <Compile Include="Model\Run.cs" />
     <Compile Include="Model\RunResult.cs" />
     <Compile Include="Model\Tile.cs" />
+    <Compile Include="Notifications\Record.cs" />
+    <Compile Include="Notifications\Recording.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\StartRecordCommand.cs" />
     <Compile Include="ViewModels\TileCommand.cs" />
-    <Compile Include="ViewModels\TilePosition.cs" />
+    <Compile Include="Notifications\TilePosition.cs" />
     <Compile Include="Views\ArenaView.xaml.cs">
       <DependentUpon>ArenaView.xaml</DependentUpon>
     </Compile>

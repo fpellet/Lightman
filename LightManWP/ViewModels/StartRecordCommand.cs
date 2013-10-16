@@ -6,15 +6,15 @@ namespace LightManWP.ViewModels
 {
     using LightManWP.Notifications;
 
-    public class TileCommand : ICommand
+    public class StartRecordCommand : ICommand
     {
         private readonly IMessenger _inputMessenger;
-        private readonly TilePosition _tilePosition;
+        private readonly Record _recordingOrder;
 
-        public TileCommand(IMessenger inputMessenger, TilePosition tilePosition)
+        public StartRecordCommand(IMessenger inputMessenger, Record recordingOrder)
         {
             _inputMessenger = inputMessenger;
-            _tilePosition = tilePosition;
+            _recordingOrder = recordingOrder;
         }
 
         public bool CanExecute(object parameter)
@@ -24,7 +24,7 @@ namespace LightManWP.ViewModels
 
         public void Execute(object parameter)
         {
-            _inputMessenger.Send(_tilePosition);
+            _inputMessenger.Send(_recordingOrder);
         }
 
         public event EventHandler CanExecuteChanged;
