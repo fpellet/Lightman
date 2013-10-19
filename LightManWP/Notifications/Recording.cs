@@ -1,8 +1,9 @@
 namespace LightManWP.Notifications
 {
-    public enum Recording
+    public enum Lightman
     {
-        Start,
-        Stop
+        Lightman1,
+        Lightman2,
+        Lightman1And2
     }
 }

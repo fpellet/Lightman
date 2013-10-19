@@ -107,6 +107,7 @@
     <Compile Include="Model\RunResult.cs" />
     <Compile Include="Model\Tile.cs" />
     <Compile Include="Notifications\Record.cs" />
+    <Compile Include="Notifications\Lightman.cs" />
     <Compile Include="Notifications\Recording.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -114,7 +115,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\StartRecordCommand.cs" />
+    <Compile Include="ViewModels\ArenaViewModel.cs" />
+    <Compile Include="ViewModels\RecordCommand.cs" />
     <Compile Include="ViewModels\TileCommand.cs" />
     <Compile Include="Notifications\TilePosition.cs" />
     <Compile Include="Views\ArenaView.xaml.cs">

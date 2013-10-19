@@ -6,12 +6,12 @@ namespace LightManWP.ViewModels
 {
     using LightManWP.Notifications;
 
-    public class StartRecordCommand : ICommand
+    public class RecordCommand : ICommand
     {
         private readonly IMessenger _inputMessenger;
         private readonly Record _recordingOrder;
 
-        public StartRecordCommand(IMessenger inputMessenger, Record recordingOrder)
+        public RecordCommand(IMessenger inputMessenger, Record recordingOrder)
         {
             _inputMessenger = inputMessenger;
             _recordingOrder = recordingOrder;

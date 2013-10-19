@@ -4,9 +4,12 @@
     {
         public Recording RecordingOrder { get; private set; }
 
-        public Record(Recording recordingOrder): this()
+        public Lightman LightmanPlayer { get; private set; }
+
+        public Record(Recording recordingOrder, Lightman lightmanPlayer) : this()
         {
             RecordingOrder = recordingOrder;
+            LightmanPlayer = lightmanPlayer;
         }
     }
 }

@@ -90,7 +90,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Messengers\MessengerFake.cs" />
-    <Compile Include="ViewModels\StartRecordCommandTest.cs" />
+    <Compile Include="ViewModels\RecordCommandTest.cs" />
     <Compile Include="ViewModels\TileCommandTest.cs" />
     <Compile Include="ViewModels\TileViewModelTest.cs" />
   </ItemGroup>

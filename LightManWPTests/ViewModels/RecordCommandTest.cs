@@ -8,15 +8,15 @@ namespace LightManWPTests.ViewModels
     using LightManWP.Notifications;
 
     [TestClass]
-    public class StartRecordCommandTest
+    public class RecordCommandTest
     {
         [TestMethod]
         public void WhenCommandIsExecutedThenNotificationIsSended()
         {
             var inputMessenger = new MessengerFake();
-            var message = new Record(Recording.Start);
+            var message = new Record(Recording.Start, Lightman.Lightman1);
 
-            var startRecordCommand = new StartRecordCommand(inputMessenger, message);
+            var startRecordCommand = new RecordCommand(inputMessenger, message);
             startRecordCommand.Execute(null);
 
             Assert.IsNotNull(inputMessenger.SendedMessage);
