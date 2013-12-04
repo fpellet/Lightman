@@ -1,32 +1,22 @@
-﻿using System;
-using System.Windows.Input;
-using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.Messaging;
+using LightManWP.Notifications;
 
 namespace LightManWP.ViewModels
 {
-    using LightManWP.Notifications;
-
-    public class RecordCommand : ICommand
+    public class RecordCommand : CommandBase<Lightman?>
     {
         private readonly IMessenger _inputMessenger;
-        private readonly Record _recordingOrder;
+        private readonly Recording _recording;
 
-        public RecordCommand(IMessenger inputMessenger, Record recordingOrder)
+        public RecordCommand(IMessenger inputMessenger, Recording recording)
         {
             _inputMessenger = inputMessenger;
-            _recordingOrder = recordingOrder;
+            _recording = recording;
         }
 
-        public bool CanExecute(object parameter)
+        protected override void Execute(Lightman? lightman)
         {
-            return true;
+            _inputMessenger.Send(new Record(_recording, lightman ?? Lightman.Lightman1And2));
         }
-
-        public void Execute(object parameter)
-        {
-            _inputMessenger.Send(_recordingOrder);
-        }
-
-        public event EventHandler CanExecuteChanged;
     }
 }

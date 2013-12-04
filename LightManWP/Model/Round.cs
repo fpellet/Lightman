@@ -3,15 +3,15 @@ using System.Linq;
 
 namespace LightManWP.Model
 {
-    public struct Round
+    public struct Round : IRound
     {
         private readonly IList<Tile> _runLightman1;
         private readonly IList<Tile> _runLightman2;
 
         public Round(Run runLightman1, Run runLightman2)
         {
-            _runLightman1 = runLightman1.RunList;
-            _runLightman2 = runLightman2.RunList;
+            _runLightman1 = runLightman1.Tiles;
+            _runLightman2 = runLightman2.Tiles;
         }
 
         public RunResult Resolve()

@@ -1,12 +1,11 @@
 ﻿using System.Linq;
+using LightManWP.Notifications;
 using LightManWP.ViewModels;
 using LightManWPTests.Messengers;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 
 namespace LightManWPTests.ViewModels
 {
-    using LightManWP.Notifications;
-
     [TestClass]
     public class RecordCommandTest
     {
@@ -14,13 +13,13 @@ namespace LightManWPTests.ViewModels
         public void WhenCommandIsExecutedThenNotificationIsSended()
         {
             var inputMessenger = new MessengerFake();
-            var message = new Record(Recording.Start, Lightman.Lightman1);
+            var expectedMessage = new Record(Recording.Start, Lightman.Lightman1);
 
-            var startRecordCommand = new RecordCommand(inputMessenger, message);
-            startRecordCommand.Execute(null);
+            var startRecordCommand = new RecordCommand(inputMessenger, Recording.Start);
+            startRecordCommand.Execute(Lightman.Lightman1);
 
             Assert.IsNotNull(inputMessenger.SendedMessage);
-            Assert.AreEqual(message, inputMessenger.SendedMessage.First());
+            Assert.AreEqual(expectedMessage, inputMessenger.SendedMessage.First());
         }
     }
 }

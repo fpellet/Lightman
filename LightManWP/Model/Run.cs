@@ -4,11 +4,16 @@ namespace LightManWP.Model
 {
     public class Run
     {
-        public IList<Tile> RunList { get; private set; }
+        public IList<Tile> Tiles { get; private set; }
 
-        public Run(IList<Tile> run)
+        public Run(IList<Tile> tiles = null)
         {
-            RunList = run;
+            Tiles = tiles ?? new List<Tile>();
+        }
+
+        public void AddTile(Tile tile)
+        {
+            Tiles.Add(tile);
         }
     }
 }

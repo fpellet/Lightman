@@ -77,6 +77,7 @@
     <Compile Include="Models\RoundTest.cs" />
     <Compile Include="Models\LightManTest.cs" />
     <Compile Include="Models\GridGameTest.cs" />
+    <Compile Include="Models\RunTest.cs" />
     <Compile Include="Models\TileTest.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="ViewModels\ArenaViewModelTest.cs" />

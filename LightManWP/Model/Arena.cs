@@ -4,14 +4,12 @@ namespace LightManWP.Model
 {
     public class Arena
     {
-        private readonly GridGame _grid;
         private readonly LightMan _lightMan1;
         private readonly LightMan _lightMan2;
         private bool _player2Turn;
 
-        public Arena(GridGame grid, LightMan lightMan1, LightMan lightMan2)
+        public Arena(LightMan lightMan1, LightMan lightMan2)
         {
-            _grid = grid;
             _lightMan1 = lightMan1;
             _lightMan2 = lightMan2;
         }
@@ -21,16 +19,16 @@ namespace LightManWP.Model
             _player2Turn = false;
         }
 
-        public void RecordCurrentRun(IList<Tile> currentRun)
+        public void RecordCurrentRun(Run currentRun)
         {
             if (_player2Turn)
             {
-                _lightMan2.RecordRun(new Run(currentRun));
+                _lightMan2.RecordRun(currentRun);
                 _player2Turn = false;
             }
             else
             {
-                _lightMan1.RecordRun(new Run(currentRun));
+                _lightMan1.RecordRun(currentRun);
                 _player2Turn = true;
             }
         }

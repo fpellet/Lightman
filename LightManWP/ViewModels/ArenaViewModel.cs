@@ -1,16 +1,31 @@
 ﻿using System.Collections.Generic;
-
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-
+using LightManWP.Model;
 using LightManWP.Notifications;
 
 namespace LightManWP.ViewModels
 {
     public class ArenaViewModel
     {
-        private readonly IDictionary<Lightman, IList<TilePosition>> _lighmansRuns;
+        public ICommand StartRecordLightManCommand { get; private set; }
+
+        public ICommand StopRecordCommand { get; private set; }
+
+        public ICommand ResolveRunCommand { get; private set; }
+
+        public bool IsWaitingForLightMan1 { get; private set; }
+
+        public bool IsWaitingForLightMan2 { get; private set; }
+
+        public LightMan Winner { get; private set; }
+
+        private readonly IDictionary<Lightman, Run> _lighmansRuns;
 
         private Lightman _currentPlayer;
+
+        private Arena _arena;
 
         private bool CurrentlyRecording
         {
@@ -20,26 +35,25 @@ namespace LightManWP.ViewModels
             }
         }
 
-        public RecordCommand StartRecordLightMan1Command { get; set; }
-
-        public RecordCommand StartRecordLightMan2Command { get; set; }
-        
-        public RecordCommand StopRecordCommand { get; set; }
-
-        public bool IsWaitingForLightMan1 { get; set; }
-
-        public bool IsWaitingForLightMan2 { get; set; }
-
         public ArenaViewModel(IMessenger messenger)
         {
-            StartRecordLightMan1Command = new RecordCommand(messenger, new Record(Recording.Start, Lightman.Lightman1));
-            StartRecordLightMan2Command = new RecordCommand(messenger, new Record(Recording.Start, Lightman.Lightman2));
-            StopRecordCommand = new RecordCommand(messenger, new Record(Recording.Stop, Lightman.Lightman1And2));
+            StartRecordLightManCommand = new RecordCommand(messenger, Recording.Start);
+            StopRecordCommand = new RecordCommand(messenger, Recording.Stop);
+            ResolveRunCommand = new RelayCommand(ResolveRound);
 
-            _lighmansRuns = new Dictionary<Lightman, IList<TilePosition>>();
+            _lighmansRuns = new Dictionary<Lightman, Run>();
+            _arena = new Arena(new LightMan("J1"), new LightMan("J2"));
 
             messenger.Register<Record>(this, ManageRequestOrder);
             messenger.Register<TilePosition>(this, TileIsPressed);
+        }
+
+        private void ResolveRound()
+        {
+            _arena.StartNewRound();
+            _arena.RecordCurrentRun(_lighmansRuns[Lightman.Lightman1]);
+            _arena.RecordCurrentRun(_lighmansRuns[Lightman.Lightman2]);
+            Winner = _arena.ResolveRound();
         }
 
         private void ManageRequestOrder(Record recordOrder)
@@ -50,14 +64,14 @@ namespace LightManWP.ViewModels
                     StartRecord(recordOrder.LightmanPlayer);
                     break;
                 default:
-                    StopRecord(recordOrder.LightmanPlayer);
+                    StopRecord();
                     break;
             }
         }
         
         private void StartRecord(Lightman lightmanPlayer)
         {
-            _lighmansRuns[lightmanPlayer] = new List<TilePosition>();
+            _lighmansRuns[lightmanPlayer] = new Run();
             _currentPlayer = lightmanPlayer;
 
             if (lightmanPlayer == Lightman.Lightman1)
@@ -72,7 +86,7 @@ namespace LightManWP.ViewModels
             }
         }
 
-        private void StopRecord(Lightman lightmanPlayer)
+        private void StopRecord()
         {
             IsWaitingForLightMan1 = false;
             IsWaitingForLightMan2 = false;
@@ -82,7 +96,7 @@ namespace LightManWP.ViewModels
         {
             if (CurrentlyRecording)
             {
-                _lighmansRuns[_currentPlayer].Add(tilePosition);
+                _lighmansRuns[_currentPlayer].AddTile(new Tile(tilePosition.PositionX, tilePosition.PositionY));
             }
         }
     }

@@ -23,15 +23,13 @@ namespace LightManWPTests.Models
         [TestMethod]
         public void WhenArenaIsCreatedAndLihtman1And2CanRecordFirstRoundWithDrawThenResultNameIsNull()
         {
-            var grid = new GridGame(3, 3);
-
-            var run1 = new List<Tile> { _tile00, _tile01, _tile02 };
-            var run2 = new List<Tile> { _tile22, _tile21, _tile20 };
+            var run1 = new Run(new List<Tile> { _tile00, _tile01, _tile02 });
+            var run2 = new Run(new List<Tile> { _tile22, _tile21, _tile20 });
 
             var lightMan1 = new LightMan(Player1Name);
             var lightMan2 = new LightMan(Player2Name);
 
-            var arena = new Arena(grid, lightMan1, lightMan2);
+            var arena = new Arena(lightMan1, lightMan2);
             arena.StartNewRound();
 
             arena.RecordCurrentRun(run1);
@@ -45,15 +43,13 @@ namespace LightManWPTests.Models
         [TestMethod]
         public void WhenLightman1WinARoundInArenaThenResolveRoundRetuRnLightman1()
         {
-            var grid = new GridGame(3, 3);
-
-            var run1 = new List<Tile> { _tile00, _tile01, _tile02 };
-            var run2 = new List<Tile> { _tile22, _tile21, _tile11, _tile10 };
+            var run1 = new Run(new List<Tile> { _tile00, _tile01, _tile02 });
+            var run2 = new Run(new List<Tile> { _tile22, _tile21, _tile11, _tile10 });
 
             var lightMan1 = new LightMan(Player1Name);
             var lightMan2 = new LightMan(Player2Name);
 
-            var arena = new Arena(grid, lightMan1, lightMan2);
+            var arena = new Arena(lightMan1, lightMan2);
             arena.StartNewRound();
 
             arena.RecordCurrentRun(run1);
@@ -67,15 +63,13 @@ namespace LightManWPTests.Models
         [TestMethod]
         public void WhenLightman2WinARoundInArenaThenResolveRoundReturnLightman2()
         {
-            var grid = new GridGame(3, 3);
-
-            var run1 = new List<Tile> { _tile22, _tile21, _tile11, _tile10 };
-            var run2 = new List<Tile> { _tile00, _tile01, _tile02 };
+            var run1 = new Run(new List<Tile> { _tile22, _tile21, _tile11, _tile10 });
+            var run2 = new Run(new List<Tile> { _tile00, _tile01, _tile02 });
 
             var lightMan1 = new LightMan(Player1Name);
             var lightMan2 = new LightMan(Player2Name);
 
-            var arena = new Arena(grid, lightMan1, lightMan2);
+            var arena = new Arena(lightMan1, lightMan2);
             arena.StartNewRound();
 
             arena.RecordCurrentRun(run1);
